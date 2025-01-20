@@ -175,6 +175,15 @@ of SCons.  Some distributions keep up to date with SCons releases
 very quickly, while others may delay, so the version of SCons
 you want to run may factor into your choice.
 
+Ideally, the proper way to install Python libraries and applications is to install them in a Python virtual environment whenever possible - exceptions to this rule are quite rare. The error message describes two common ways to accomplish this: either by creating a virtual environment yourself, or for applications, by using pipx—a tool which will create a virtual environment for you and install the application in that virtual environment. `pipx` is strongly recommended for installing applications, i.e., when you will primarily use the installed code from the command line. On Debian systems and Debian-based systems such as Ubuntu, you can install `pipx` using `apt`, and then use `pipx` to install the application:
+
+```
+apt install pipx
+pipx install scons
+```
+
+For libraries, i.e., when you will use the code primarily by importing it in your own projects. Typically, you should create a virtual environment yourself. You can do this with venv from the standard library:
+
 
 Getting Started Using SCons
 ===========================
