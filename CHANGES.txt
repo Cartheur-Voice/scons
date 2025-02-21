@@ -12,6 +12,10 @@ NOTE: Python 3.6 support is deprecated and will be dropped in a future release.
 
 RELEASE  VERSION/DATE TO BE FILLED IN LATER
 
+  From Ruben Di Battista:
+    - Expose `extra_libs` kwarg in Configure checks `CheckLibWithHeader`
+      and 'CheckLib' and forward it downstream to `CheckLib`
+
   From Joseph Brill:
     - Added error handling when creating MSVC detection debug log file specified by
       SCONS_MSCOMMON_DEBUG.
@@ -96,6 +100,8 @@ RELEASE  VERSION/DATE TO BE FILLED IN LATER
       specified `local_only`, but the code and tests were using `keep_local`. The functionality
       more closely matches local only.  NOTE: It doesn't seem like any code in the wild was using
       local_only as we'd not received any reports of such until PR #4606 from hedger.
+    - Fix Issue #2281, AddPreAction() & AddPostAction() were being ignored if no action
+      was specified when the Alias was initially created.
 
   From Alex James:
     - On Darwin, PermissionErrors are now handled while trying to access
@@ -198,6 +204,10 @@ RELEASE  VERSION/DATE TO BE FILLED IN LATER
       attribute and to explain what's being done in the example.
     - Test framework reformatted using settings from pyproject.toml.
       Includes code embedded in docstrings.
+    - Handle case of "memoizer" as one member of a comma-separated
+      --debug string - this was previously missed.
+    - test YACC/live.py fixed - finally started failing on an "old-style"
+      (K&R flavor) function declaration, updated.
 
     From Adam Scott:
     - Changed Ninja's TEMPLATE rule pool to use `install_pool` instead of
